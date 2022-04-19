@@ -39,6 +39,14 @@ MonoBehaviour:
   - DestroySpaceship
   - Fire
   - RespawnSpaceship
+  - TEST
+  - RPC_OtherPlayer
+  - Quest_OnLeftAnswer
+  - RPC_OtherPlayer1
+  - RPC_Switch
+  - RPC_Left
+  - RPC_Right
+  - RPC_Update
   DisableAutoOpenWizard: 1
   ShowSettings: 1
   DevRegionSetOnce: 1

@@ -214,7 +214,6 @@ namespace Photon.Pun.Demo.Asteroids
             }
             if (playerListEntries.Count > 1)
             {
-                print($"количество игроков { playerListEntries.Count}");
                 StartGameButton.gameObject.SetActive(CheckPlayersReady());
             }
 
