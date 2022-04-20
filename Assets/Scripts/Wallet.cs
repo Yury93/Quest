@@ -97,6 +97,7 @@ public class Wallet : MonoBehaviour
             walletMoney = 0;
             bet = 0;
         }
+        print("dmkank");
         betTxt.text = "BET  " + bet;
         walletMoneyTxt.text = "Gold: " + walletMoney.ToString();
         RegisterMoneyNull();
