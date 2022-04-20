@@ -8,6 +8,11 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviourPunCallbacks,IPunObservable
 {
+    [Header("Result")]
+    [SerializeField] private Text resultTxt;
+    [SerializeField] private string nameSceneLoad;
+    
+    [Header("Logic")]
     [SerializeField] private GameObject prefabPlayer, ImageBg;
 
     [SerializeField] private Text scoreTxtPlayer1, scoreTxtPlayer2, timerTxt;
@@ -48,8 +53,8 @@ public class GameManager : MonoBehaviourPunCallbacks,IPunObservable
         startTimerPl1 = timerPl;
         startTimerPl2 = timerPl;
 
-        scoreTxtPlayer1.text = "The opponent's goals: " + scorePl1.ToString();
-        //scoreTxtPlayer2.text = "Score: " + scorePl2.ToString();
+        //scoreTxtPlayer1.text = "The opponent's goals: " + scorePl1.ToString();
+        resultTxt.text = $"{scorePl1}:{scorePl2}";
 
 
         quest.OnRightAnswer += Quest_OnRightAnswer;
@@ -88,7 +93,8 @@ public class GameManager : MonoBehaviourPunCallbacks,IPunObservable
         if (player1Go )
         {
             scorePl1 += 1;
-            scoreTxtPlayer1.text = "The opponent's goals: " + scorePl1.ToString();
+            //scoreTxtPlayer1.text = "The opponent's goals: " + scorePl1.ToString();
+            resultTxt.text = $"{scorePl1}:{scorePl2}";
             timerPl = startTimerPl1;
             player1Go = false;
             return;
@@ -96,7 +102,8 @@ public class GameManager : MonoBehaviourPunCallbacks,IPunObservable
         else if (!player1Go )
         {
             scorePl2 += 1;
-            scoreTxtPlayer2.text = "The opponent's goals: " + scorePl2.ToString();
+            //scoreTxtPlayer2.text = "The opponent's goals: " + scorePl2.ToString();
+            resultTxt.text = $"{scorePl1}:{scorePl2}";
             timerPl = startTimerPl2;
             player1Go = true;
             return;
@@ -107,7 +114,8 @@ public class GameManager : MonoBehaviourPunCallbacks,IPunObservable
     {
         if (player1Go )
         {
-            scoreTxtPlayer1.text = "The opponent's goals: " + scorePl1.ToString();
+            //scoreTxtPlayer1.text = "The opponent's goals: " + scorePl1.ToString();
+            resultTxt.text = $"{scorePl1}:{scorePl2}";
             startTimerPl1 = timerPl;
             player1Go = false;
             return;
@@ -115,16 +123,12 @@ public class GameManager : MonoBehaviourPunCallbacks,IPunObservable
         }
         else if (!player1Go )
         {
-            scoreTxtPlayer2.text = "The opponent's goals: " + scorePl2.ToString();
+            //scoreTxtPlayer2.text = "The opponent's goals: " + scorePl2.ToString();
+            resultTxt.text = $"{scorePl1}:{scorePl2}";
             startTimerPl2 = timerPl;
             player1Go = true;
             return;
 
-        }
-        else if (timerPl < 0)
-        {
-            print("Кто то проиграл");
-            return;
         }
     }
     [PunRPC]
@@ -182,10 +186,45 @@ public class GameManager : MonoBehaviourPunCallbacks,IPunObservable
                 timerPl -= Time.deltaTime;
                 timerTxt.text = ((int)timerPl).ToString();
             }
-        
+            if(timerPl <= 0)
+            {
+                //первый игрок выигрывает - счёт
+                if (scorePl1 > scorePl2)
+                {
+                    StartCoroutine(CorNextScene());
+                    resultTxt.text = $"Game over \n " +
+                       $"{scorePl1}:{scorePl2}";
+
+                    timerPl = 0;
+                    timerTxt.text = 0.ToString();
+                }
+                if (scorePl1 < scorePl2)
+                {
+                    StartCoroutine(CorNextScene());
+                    resultTxt.text = $"Game over \n " +
+                        $"{scorePl1}:{scorePl2}";
+                    //второй игрок выигрывает - счёт
+
+                    timerPl = 0;
+                    timerTxt.text = 0.ToString();
+                }
+                if (scorePl1 == scorePl2)
+                {
+                    //ничья
+                    StartCoroutine(CorNextScene());
+                    resultTxt.text = $"Draw!";
+                    timerPl = 0;
+                    timerTxt.text = 0.ToString();
+                }
+            }
+           
         }
     }
-    
+    public IEnumerator CorNextScene()
+    {
+        yield return new WaitForSeconds(1.5f);
+        SceneManager.LoadScene(nameSceneLoad);
+    }
     private void Update()
     {
         view.RPC("RPC_Update", RpcTarget.All);
@@ -203,12 +242,12 @@ public class GameManager : MonoBehaviourPunCallbacks,IPunObservable
     public override void OnDisconnected(DisconnectCause cause)
     {
         base.OnDisconnected(cause);
-        SceneManager.LoadScene("DemoAsteroids-LobbyScene");
+        SceneManager.LoadScene("Menu");
     }
     public override void OnPlayerLeftRoom(Player otherPlayer)
     {
         base.OnPlayerLeftRoom(otherPlayer);
-        SceneManager.LoadScene("DemoAsteroids-LobbyScene");
+        SceneManager.LoadScene("Menu");
     }
     public void LoadSetPlayerGo(bool flag)
     {
@@ -231,4 +270,5 @@ public class GameManager : MonoBehaviourPunCallbacks,IPunObservable
             timerPl = (float)stream.ReceiveNext();
         }
     }
+    
 }

@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-    <LangVersion>8.0</LangVersion>
+    <LangVersion>latest</LangVersion>
   </PropertyGroup>
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -53,26 +53,23 @@
     <UnityVersion>2020.3.26f1</UnityVersion>
   </PropertyGroup>
   <ItemGroup>
-    <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Assets\Photon\PhotonUnityNetworking\Code\Views\PhotonRigidbodyView.cs" />
-    <Compile Include="Assets\Photon\PhotonUnityNetworking\Code\PunClasses.cs" />
     <Compile Include="Assets\Photon\PhotonUnityNetworking\Code\PhotonStreamQueue.cs" />
-    <Compile Include="Assets\Photon\PhotonUnityNetworking\Code\ServerSettings.cs" />
     <Compile Include="Assets\Photon\PhotonUnityNetworking\Code\PhotonNetworkPart.cs" />
-    <Compile Include="Assets\Photon\PhotonUnityNetworking\Code\Enums.cs" />
-    <Compile Include="Assets\Photon\PhotonUnityNetworking\Code\PhotonNetwork.cs" />
-    <Compile Include="Assets\Photon\PhotonUnityNetworking\Code\PhotonView.cs" />
-    <Compile Include="Assets\Photon\PhotonUnityNetworking\Code\Utilities\NestedComponentUtilities.cs" />
-    <Compile Include="Assets\Photon\PhotonUnityNetworking\Code\Views\PhotonAnimatorView.cs" />
-    <Compile Include="Assets\Photon\PhotonUnityNetworking\Code\Interfaces\IPunCallbacks.cs" />
-    <Compile Include="Assets\Photon\PhotonUnityNetworking\Code\Views\PhotonRigidbody2DView.cs" />
     <Compile Include="Assets\Photon\PhotonUnityNetworking\Code\Interfaces\IPhotonViewCallbacks.cs" />
     <Compile Include="Assets\Photon\PhotonUnityNetworking\Code\Views\PhotonTransformViewClassic.cs" />
-    <Compile Include="Assets\Photon\PhotonUnityNetworking\Code\CustomTypes.cs" />
-    <Compile Include="Assets\Photon\PhotonUnityNetworking\Code\Views\PhotonTransformView.cs" />
     <Compile Include="Assets\Photon\PhotonUnityNetworking\Code\PhotonHandler.cs" />
+    <Compile Include="Assets\Photon\PhotonUnityNetworking\Code\PunClasses.cs" />
+    <Compile Include="Assets\Photon\PhotonUnityNetworking\Code\Views\PhotonRigidbody2DView.cs" />
+    <Compile Include="Assets\Photon\PhotonUnityNetworking\Code\PhotonNetwork.cs" />
+    <Compile Include="Assets\Photon\PhotonUnityNetworking\Code\PhotonView.cs" />
+    <Compile Include="Assets\Photon\PhotonUnityNetworking\Code\Views\PhotonAnimatorView.cs" />
+    <Compile Include="Assets\Photon\PhotonUnityNetworking\Code\CustomTypes.cs" />
+    <Compile Include="Assets\Photon\PhotonUnityNetworking\Code\Views\PhotonRigidbodyView.cs" />
+    <Compile Include="Assets\Photon\PhotonUnityNetworking\Code\Enums.cs" />
+    <Compile Include="Assets\Photon\PhotonUnityNetworking\Code\Interfaces\IPunCallbacks.cs" />
+    <Compile Include="Assets\Photon\PhotonUnityNetworking\Code\Views\PhotonTransformView.cs" />
+    <Compile Include="Assets\Photon\PhotonUnityNetworking\Code\ServerSettings.cs" />
+    <Compile Include="Assets\Photon\PhotonUnityNetworking\Code\Utilities\NestedComponentUtilities.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Photon\PhotonUnityNetworking\Code\PhotonUnityNetworking.asmdef" />
@@ -330,20 +327,20 @@
     <Reference Include="Unity.Plastic.Antlr3.Runtime">
       <HintPath>Library\PackageCache\com.unity.collab-proxy@1.15.7\Lib\Editor\PlasticSCM\Unity.Plastic.Antlr3.Runtime.dll</HintPath>
     </Reference>
+    <Reference Include="websocket-sharp">
+      <HintPath>Assets\Photon\PhotonLibs\WebSocket\websocket-sharp.dll</HintPath>
+    </Reference>
     <Reference Include="unityplastic">
       <HintPath>Library\PackageCache\com.unity.collab-proxy@1.15.7\Lib\Editor\PlasticSCM\unityplastic.dll</HintPath>
+    </Reference>
+    <Reference Include="Photon3Unity3D">
+      <HintPath>Assets\Photon\PhotonLibs\netstandard2.0\Photon3Unity3D.dll</HintPath>
     </Reference>
     <Reference Include="log4netPlastic">
       <HintPath>Library\PackageCache\com.unity.collab-proxy@1.15.7\Lib\Editor\PlasticSCM\log4netPlastic.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json">
       <HintPath>Library\PackageCache\com.unity.nuget.newtonsoft-json@2.0.0\Runtime\Newtonsoft.Json.dll</HintPath>
-    </Reference>
-    <Reference Include="Photon3Unity3D">
-      <HintPath>Assets\Photon\PhotonLibs\netstandard2.0\Photon3Unity3D.dll</HintPath>
-    </Reference>
-    <Reference Include="websocket-sharp">
-      <HintPath>Assets\Photon\PhotonLibs\WebSocket\websocket-sharp.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.iOS.Extensions.Xcode">
       <HintPath>C:\Program Files\Unity\2020.3.26f1\Editor\Data\PlaybackEngines\iOSSupport\UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
