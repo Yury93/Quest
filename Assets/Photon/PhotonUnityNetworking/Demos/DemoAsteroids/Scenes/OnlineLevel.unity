@@ -1280,7 +1280,7 @@ MonoBehaviour:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
     m_FontSize: 77
     m_FontStyle: 0
-    m_BestFit: 0
+    m_BestFit: 1
     m_MinSize: 10
     m_MaxSize: 77
     m_Alignment: 4
@@ -1681,7 +1681,7 @@ MonoBehaviour:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
     m_FontSize: 77
     m_FontStyle: 0
-    m_BestFit: 0
+    m_BestFit: 1
     m_MinSize: 10
     m_MaxSize: 77
     m_Alignment: 4
@@ -2004,7 +2004,7 @@ MonoBehaviour:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
     m_FontSize: 77
     m_FontStyle: 0
-    m_BestFit: 0
+    m_BestFit: 1
     m_MinSize: 10
     m_MaxSize: 77
     m_Alignment: 4
@@ -2435,7 +2435,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2229348664044822501, guid: 84b61a41061e2644988e2edeeaaa912c, type: 3}
       propertyPath: sceneViewId
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8470951017674743788, guid: 84b61a41061e2644988e2edeeaaa912c, type: 3}
       propertyPath: m_Pivot.x

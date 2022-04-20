@@ -31,6 +31,7 @@ public class GameManager : MonoBehaviourPunCallbacks,IPunObservable
     [SerializeField] private List<GameObject> players;
     private void Start()
     {
+        
         StartCoroutine(CorConnected());
         view = GetComponent<PhotonView>();
        
@@ -53,7 +54,6 @@ public class GameManager : MonoBehaviourPunCallbacks,IPunObservable
         startTimerPl1 = timerPl;
         startTimerPl2 = timerPl;
 
-        //scoreTxtPlayer1.text = "The opponent's goals: " + scorePl1.ToString();
         resultTxt.text = $"{scorePl1}:{scorePl2}";
 
 
@@ -93,18 +93,16 @@ public class GameManager : MonoBehaviourPunCallbacks,IPunObservable
         if (player1Go )
         {
             scorePl1 += 1;
-            //scoreTxtPlayer1.text = "The opponent's goals: " + scorePl1.ToString();
             resultTxt.text = $"{scorePl1}:{scorePl2}";
-            timerPl = startTimerPl1;
+            
             player1Go = false;
             return;
         }
         else if (!player1Go )
         {
             scorePl2 += 1;
-            //scoreTxtPlayer2.text = "The opponent's goals: " + scorePl2.ToString();
             resultTxt.text = $"{scorePl1}:{scorePl2}";
-            timerPl = startTimerPl2;
+            
             player1Go = true;
             return;
         }
@@ -114,18 +112,16 @@ public class GameManager : MonoBehaviourPunCallbacks,IPunObservable
     {
         if (player1Go )
         {
-            //scoreTxtPlayer1.text = "The opponent's goals: " + scorePl1.ToString();
             resultTxt.text = $"{scorePl1}:{scorePl2}";
-            startTimerPl1 = timerPl;
+           
             player1Go = false;
             return;
 
         }
         else if (!player1Go )
         {
-            //scoreTxtPlayer2.text = "The opponent's goals: " + scorePl2.ToString();
             resultTxt.text = $"{scorePl1}:{scorePl2}";
-            startTimerPl2 = timerPl;
+            
             player1Go = true;
             return;
 
@@ -175,20 +171,25 @@ public class GameManager : MonoBehaviourPunCallbacks,IPunObservable
     {
         if (countPl > 1)
         {
-            if (player1Go && timerPl > 0)
-            {
-                timerPl -= Time.deltaTime;
-                timerTxt.text = ((int)timerPl).ToString();
-            }
+            //if (player1Go && timerPl > 0)
+            //{
+            //    timerPl -= Time.deltaTime;
+            //    timerTxt.text = ((int)timerPl).ToString();
+            //}
 
-            if (!player1Go && timerPl > 0)
+            //if (!player1Go && timerPl > 0)
+            //{
+            //    timerPl -= Time.deltaTime;
+            //    timerTxt.text = ((int)timerPl).ToString();
+            //}
+           if( timerPl > 0)
             {
-                timerPl -= Time.deltaTime;
+                timerPl -= Time.fixedDeltaTime;
                 timerTxt.text = ((int)timerPl).ToString();
             }
-            if(timerPl <= 0)
+            if (timerPl <= 0)
             {
-                //первый игрок выигрывает - счёт
+                
                 if (scorePl1 > scorePl2)
                 {
                     StartCoroutine(CorNextScene());
@@ -203,14 +204,12 @@ public class GameManager : MonoBehaviourPunCallbacks,IPunObservable
                     StartCoroutine(CorNextScene());
                     resultTxt.text = $"Game over \n " +
                         $"{scorePl1}:{scorePl2}";
-                    //второй игрок выигрывает - счёт
-
+                  
                     timerPl = 0;
                     timerTxt.text = 0.ToString();
                 }
                 if (scorePl1 == scorePl2)
                 {
-                    //ничья
                     StartCoroutine(CorNextScene());
                     resultTxt.text = $"Draw!";
                     timerPl = 0;
@@ -223,12 +222,19 @@ public class GameManager : MonoBehaviourPunCallbacks,IPunObservable
     public IEnumerator CorNextScene()
     {
         yield return new WaitForSeconds(1.5f);
-        SceneManager.LoadScene(nameSceneLoad);
+      
+        //if (PhotonNetwork.IsMasterClient)
+        //{
+        //    PhotonNetwork.LoadLevel("Menu");
+        //}
+        //else
+        //{
+            SceneManager.LoadScene("Menu");
+        //}
     }
-    private void Update()
+    private void FixedUpdate()
     {
         view.RPC("RPC_Update", RpcTarget.All);
-       
     }
     #region PunAPI
     public override void OnConnected()
@@ -248,6 +254,7 @@ public class GameManager : MonoBehaviourPunCallbacks,IPunObservable
     {
         base.OnPlayerLeftRoom(otherPlayer);
         SceneManager.LoadScene("Menu");
+        //PhotonNetwork.LoadLevel("Menu");
     }
     public void LoadSetPlayerGo(bool flag)
     {
