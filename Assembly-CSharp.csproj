@@ -68,6 +68,9 @@
     <Compile Include="Assets\Photon\PhotonChat\Demos\Common\TextToggleIsOnTransition.cs" />
     <Compile Include="Assets\Photon\PhotonChat\Demos\Common\OnStartDelete.cs" />
     <Compile Include="Assets\Scripts\GameManagerSingle.cs" />
+    <Compile Include="Assets\Scripts\SceneController.cs" />
+    <Compile Include="Assets\Scripts\Wallet.cs" />
+    <Compile Include="Assets\Scripts\Menu.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Photon\PhotonLibs\netstandard2.0\Photon3Unity3D.xml" />
@@ -804,6 +807,34 @@
     <ProjectReference Include="PhotonUnityNetworking.Utilities.Culling.Editor.csproj">
       <Project>{98D6F90C-CDCF-9B4A-EDE0-871FD517346F}</Project>
       <Name>PhotonUnityNetworking.Utilities.Culling.Editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="Fungus.csproj">
+      <Project>{26912F4C-F8C8-BD64-6343-DB341BDC312D}</Project>
+      <Name>Fungus</Name>
+    </ProjectReference>
+    <ProjectReference Include="Fungus.LineEndingsEditor.csproj">
+      <Project>{8C8DF8D7-9901-319F-2679-6555CA33B08A}</Project>
+      <Name>Fungus.LineEndingsEditor</Name>
+    </ProjectReference>
+    <ProjectReference Include="FungusEditor.csproj">
+      <Project>{20C43720-82C9-307A-2738-4ADFA9361CBC}</Project>
+      <Name>FungusEditor</Name>
+    </ProjectReference>
+    <ProjectReference Include="Fungus.FungusLuaEditor.csproj">
+      <Project>{0150FE7B-3DAC-C638-5342-6025E800B9CD}</Project>
+      <Name>Fungus.FungusLuaEditor</Name>
+    </ProjectReference>
+    <ProjectReference Include="Fungus.FungusLuaJSONCheckerEditor.csproj">
+      <Project>{A239ECEB-4712-05F7-0741-A72FA897CFAE}</Project>
+      <Name>Fungus.FungusLuaJSONCheckerEditor</Name>
+    </ProjectReference>
+    <ProjectReference Include="Fungus.UsfxrEditor.csproj">
+      <Project>{E311CC76-FC6D-8DE5-C92E-2E16941B8E18}</Project>
+      <Name>Fungus.UsfxrEditor</Name>
+    </ProjectReference>
+    <ProjectReference Include="FungusExamples.csproj">
+      <Project>{5855789E-83B8-5AB6-92AF-A0A294EC225E}</Project>
+      <Name>FungusExamples</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

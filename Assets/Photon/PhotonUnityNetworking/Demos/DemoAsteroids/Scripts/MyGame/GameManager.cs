@@ -221,7 +221,7 @@ public class GameManager : MonoBehaviourPunCallbacks,IPunObservable
     }
     public IEnumerator CorNextScene()
     {
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(1.9f);
       
         //if (PhotonNetwork.IsMasterClient)
         //{
