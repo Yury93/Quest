@@ -54,23 +54,24 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Assets\Photon\PhotonRealtime\Demos\DemoLoadBalancing\ConnectAndJoinRandomLb.cs" />
-    <Compile Include="Assets\Photon\PhotonLibs\WebSocket\WebSocket.cs" />
-    <Compile Include="Assets\Photon\PhotonChat\Demos\Common\TextButtonTransition.cs" />
     <Compile Include="Assets\Photon\PhotonLibs\WebSocket\SocketWebTcp.cs" />
     <Compile Include="Assets\Photon\PhotonChat\Demos\DemoChat\ChatAppIdCheckerUI.cs" />
     <Compile Include="Assets\Photon\PhotonChat\Demos\DemoChat\AppSettingsExtensions.cs" />
-    <Compile Include="Assets\Photon\PhotonChat\Demos\DemoChat\NamePickGui.cs" />
     <Compile Include="Assets\Photon\PhotonChat\Demos\DemoChat\ChannelSelector.cs" />
-    <Compile Include="Assets\Photon\PhotonChat\Demos\DemoChat\IgnoreUiRaycastWhenInactive.cs" />
     <Compile Include="Assets\Photon\PhotonChat\Demos\Common\EventSystemSpawner.cs" />
+    <Compile Include="Assets\Photon\PhotonLibs\WebSocket\WebSocket.cs" />
+    <Compile Include="Assets\Scripts\GameManagerSingle.cs" />
+    <Compile Include="Assets\Photon\PhotonChat\Demos\Common\TextButtonTransition.cs" />
+    <Compile Include="Assets\Photon\PhotonChat\Demos\DemoChat\NamePickGui.cs" />
+    <Compile Include="Assets\Photon\PhotonChat\Demos\DemoChat\IgnoreUiRaycastWhenInactive.cs" />
     <Compile Include="Assets\Photon\PhotonChat\Demos\DemoChat\FriendItem.cs" />
     <Compile Include="Assets\Photon\PhotonChat\Demos\DemoChat\ChatGui.cs" />
     <Compile Include="Assets\Photon\PhotonChat\Demos\Common\TextToggleIsOnTransition.cs" />
-    <Compile Include="Assets\Photon\PhotonChat\Demos\Common\OnStartDelete.cs" />
-    <Compile Include="Assets\Scripts\GameManagerSingle.cs" />
-    <Compile Include="Assets\Scripts\SceneController.cs" />
     <Compile Include="Assets\Scripts\Wallet.cs" />
     <Compile Include="Assets\Scripts\Menu.cs" />
+    <Compile Include="Assets\Scripts\SceneController.cs" />
+    <Compile Include="Assets\Photon\PhotonChat\Demos\Common\OnStartDelete.cs" />
+    <Compile Include="Assets\Scripts\Server.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Photon\PhotonLibs\netstandard2.0\Photon3Unity3D.xml" />
@@ -772,6 +773,22 @@
       <Project>{7FB92F9E-9DA4-1E63-ACFA-09903694C45F}</Project>
       <Name>PhotonChat</Name>
     </ProjectReference>
+    <ProjectReference Include="Fungus.csproj">
+      <Project>{26912F4C-F8C8-BD64-6343-DB341BDC312D}</Project>
+      <Name>Fungus</Name>
+    </ProjectReference>
+    <ProjectReference Include="FungusEditor.csproj">
+      <Project>{20C43720-82C9-307A-2738-4ADFA9361CBC}</Project>
+      <Name>FungusEditor</Name>
+    </ProjectReference>
+    <ProjectReference Include="Fungus.UsfxrEditor.csproj">
+      <Project>{E311CC76-FC6D-8DE5-C92E-2E16941B8E18}</Project>
+      <Name>Fungus.UsfxrEditor</Name>
+    </ProjectReference>
+    <ProjectReference Include="Fungus.FungusLuaJSONCheckerEditor.csproj">
+      <Project>{A239ECEB-4712-05F7-0741-A72FA897CFAE}</Project>
+      <Name>Fungus.FungusLuaJSONCheckerEditor</Name>
+    </ProjectReference>
     <ProjectReference Include="PhotonUnityNetworking.Editor.csproj">
       <Project>{2515BD49-4B60-22AD-4277-580A08318DB7}</Project>
       <Name>PhotonUnityNetworking.Editor</Name>
@@ -780,6 +797,10 @@
       <Project>{CC3EA75F-27B8-A052-49A0-3DA9832254A6}</Project>
       <Name>PhotonUnityNetworking.Utilities.PhotonPlayer.Editor</Name>
     </ProjectReference>
+    <ProjectReference Include="FungusExamples.csproj">
+      <Project>{5855789E-83B8-5AB6-92AF-A0A294EC225E}</Project>
+      <Name>FungusExamples</Name>
+    </ProjectReference>
     <ProjectReference Include="PunDemos.DemoHubEditor.csproj">
       <Project>{A6B10C06-921F-A5BF-EAFE-1B4CA0F224B6}</Project>
       <Name>PunDemos.DemoHubEditor</Name>
@@ -787,6 +808,10 @@
     <ProjectReference Include="PhotonRealtime.csproj">
       <Project>{F0EBA55D-E531-371A-FE4F-07692F0F1EB4}</Project>
       <Name>PhotonRealtime</Name>
+    </ProjectReference>
+    <ProjectReference Include="Fungus.LineEndingsEditor.csproj">
+      <Project>{8C8DF8D7-9901-319F-2679-6555CA33B08A}</Project>
+      <Name>Fungus.LineEndingsEditor</Name>
     </ProjectReference>
     <ProjectReference Include="PhotonUnityNetworking.Utilities.csproj">
       <Project>{AA9A614F-3D80-6019-6D2D-2169E193B557}</Project>
@@ -800,6 +825,10 @@
       <Project>{2C0FAFAE-5D11-94C2-6D0E-DD8814AB127E}</Project>
       <Name>PhotonUnityNetworking.Demos</Name>
     </ProjectReference>
+    <ProjectReference Include="Fungus.FungusLuaEditor.csproj">
+      <Project>{0150FE7B-3DAC-C638-5342-6025E800B9CD}</Project>
+      <Name>Fungus.FungusLuaEditor</Name>
+    </ProjectReference>
     <ProjectReference Include="PunDemos.DemoSlotcarEditor.csproj">
       <Project>{D6EAD247-1D97-F42B-0C93-9241D20E8BFE}</Project>
       <Name>PunDemos.DemoSlotcarEditor</Name>
@@ -807,34 +836,6 @@
     <ProjectReference Include="PhotonUnityNetworking.Utilities.Culling.Editor.csproj">
       <Project>{98D6F90C-CDCF-9B4A-EDE0-871FD517346F}</Project>
       <Name>PhotonUnityNetworking.Utilities.Culling.Editor</Name>
-    </ProjectReference>
-    <ProjectReference Include="Fungus.csproj">
-      <Project>{26912F4C-F8C8-BD64-6343-DB341BDC312D}</Project>
-      <Name>Fungus</Name>
-    </ProjectReference>
-    <ProjectReference Include="Fungus.LineEndingsEditor.csproj">
-      <Project>{8C8DF8D7-9901-319F-2679-6555CA33B08A}</Project>
-      <Name>Fungus.LineEndingsEditor</Name>
-    </ProjectReference>
-    <ProjectReference Include="FungusEditor.csproj">
-      <Project>{20C43720-82C9-307A-2738-4ADFA9361CBC}</Project>
-      <Name>FungusEditor</Name>
-    </ProjectReference>
-    <ProjectReference Include="Fungus.FungusLuaEditor.csproj">
-      <Project>{0150FE7B-3DAC-C638-5342-6025E800B9CD}</Project>
-      <Name>Fungus.FungusLuaEditor</Name>
-    </ProjectReference>
-    <ProjectReference Include="Fungus.FungusLuaJSONCheckerEditor.csproj">
-      <Project>{A239ECEB-4712-05F7-0741-A72FA897CFAE}</Project>
-      <Name>Fungus.FungusLuaJSONCheckerEditor</Name>
-    </ProjectReference>
-    <ProjectReference Include="Fungus.UsfxrEditor.csproj">
-      <Project>{E311CC76-FC6D-8DE5-C92E-2E16941B8E18}</Project>
-      <Name>Fungus.UsfxrEditor</Name>
-    </ProjectReference>
-    <ProjectReference Include="FungusExamples.csproj">
-      <Project>{5855789E-83B8-5AB6-92AF-A0A294EC225E}</Project>
-      <Name>FungusExamples</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

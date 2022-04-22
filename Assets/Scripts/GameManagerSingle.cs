@@ -24,10 +24,12 @@ public class GameManagerSingle : MonoBehaviour
         scoreTxt.text = "Gold: " + score.ToString();
         timerTxt.text = ((int)timer).ToString();
         gameOver = false;
+        Server.Log("Shithead made a bet");
     }
 
     private void Quest_OnRightAnswer()
     {
+        Server.Log("On Right Answer");
         timer = startTimer;
         score++;
         scoreTxt.text = "Gold: "+score.ToString();
@@ -47,6 +49,7 @@ public class GameManagerSingle : MonoBehaviour
 
     private void Quest_OnLeftAnswer()
     {
+        Server.Log("On Left Answer");
         timer -= 5f;
         if (gameOver)
         {

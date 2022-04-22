@@ -10,14 +10,17 @@ public class Menu : MonoBehaviour
     public void Story()
     {
         story.LoadNextScene();
+        Server.Log("Story Game");
     }
     public void Online()
     {
         online.LoadNextScene();
+        Server.Log("Online");
     }
     public void Exit()
     {
         Application.Quit();
+        Server.Log("Exit");
     }
 
 }

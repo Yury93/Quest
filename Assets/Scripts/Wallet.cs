@@ -73,7 +73,7 @@ public class Wallet : MonoBehaviour
             bet += walletMoney;
             walletMoney = 0;
         }
-
+        
         betTxt.text = "BET  " + bet;
         walletMoneyTxt.text = "Gold: " +  walletMoney.ToString();
     }
